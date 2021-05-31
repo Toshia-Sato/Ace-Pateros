@@ -4,4 +4,10 @@ $(document).ready(function () {
       $('#sidebar').toggleClass('active');
   });
 
+  $('#myModal').on('shown.bs.modal', function (e) {
+    $('#myModalLabel').focus()
+  })
+
+
+
 });

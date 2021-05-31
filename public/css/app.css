@@ -10002,7 +10002,6 @@ h3 {
     border-color: #dee2e6;
   }
 }
-
 .wrapper {
   display: flex;
   align-items: stretch;
@@ -10010,11 +10009,11 @@ h3 {
 
 #sidebar {
   min-width: 250px;
-  max-width: 300px;
-  min-height: 125vh;
+  max-width: 250px;
+  min-height: 100vh;
 }
 #sidebar.active {
-  margin-left: -300px;
+  margin-left: -250px;
 }
 
 a[data-toggle="collapse"] {
@@ -10061,28 +10060,24 @@ a, a:hover, a:focus {
 
 #sidebar {
   /* don't forget to add all the previously mentioned styles here too */
-  background: #981A1F;
+  background: #7386D5;
   color: #fff;
   transition: all 0.3s;
-  border-right: 25px solid #156735;
-  min-width: 200px;
-  float:left;
-
 }
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background: #981A1F;
+  background: #6d7fcc;
 }
 
 #sidebar ul.components {
   padding: 20px 0;
+  border-bottom: 1px solid #47748b;
 }
 
 #sidebar ul p {
   color: #fff;
   padding: 10px;
- 
 }
 
 #sidebar ul li a {
@@ -10091,17 +10086,25 @@ a, a:hover, a:focus {
   display: block;
 }
 #sidebar ul li a:hover {
-  color: #fff;
-  background: #981A1F;
+  color: #7386D5;
+  background: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
   color: #fff;
-  background: #922c30;
+  background: #6d7fcc;
 }
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background: #922c30;
+  background: #6d7fcc;
 }
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+ }
+ 
+ .carousel-control-next-icon {
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+ }
 

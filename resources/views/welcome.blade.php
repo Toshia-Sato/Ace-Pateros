@@ -1,3 +1,5 @@
+<title>ACE MEDICAL CENTER PATEROS</title>
+
 @extends('layouts.app')
 
 @section('content')

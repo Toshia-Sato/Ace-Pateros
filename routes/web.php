@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Specialization;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,6 +65,23 @@ Route::get('faqs', function () {
 
 
 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('doctors', App\Http\Controllers\DoctorController::class);
+Route::get('doctors/{doctors}/edit', [App\Http\Controllers\DoctorController::class, 'edit']);
+Route::patch('doctors/{doctors}', [App\Http\Controllers\DoctorController::class, 'update']);
+Route::get('/s', [App\Http\Controllers\SearchController::class, 'index']);
+Route::get('/s/search', [App\Http\Controllers\SearchController::class, 'search']);
+
+
+// SpecializationController
+Route::resource('specializations', App\Http\Controllers\SpecializationController::class);
+Route::get('specializations/{specializations}/edit', [App\Http\Controllers\SpecializationController::class, 'edit']);
+Route::patch('specializatons/{specializatons}', [App\Http\Controllers\SpecializationController::class, 'update']);
+
+// ServiceController
+Route::resource('service', App\Http\Controllers\ServiceController::class);
+Route::get('service/{service}/edit', [App\Http\Controllers\ServiceController::class, 'edit']);
+Route::patch('service/{service}', [App\Http\Controllers\ServiceController::class, 'update']);
