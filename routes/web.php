@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Specialization;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,24 +27,15 @@ Route::get('/services/ancillary-services', function () {
 Route::get('/services/nursing-services', function () {
     return view('/services/nursing-services');
 });
-Route::get('physicians/dental', function () {
-    return view('physicians/dental');
-});
-Route::get('physicians/ent', function () {
-    return view('physicians/ent');
-});
-Route::get('physicians/internal-medicine', function () {
-    return view('physicians/internal-medicine');
-});
-Route::get('physicians/ophthalmology', function () {
-    return view('physicians/ophthalmology');
-});
-Route::get('physicians/pediatric', function () {
-    return view('physicians/pediatric');
-});
-Route::get('physicians/surgery-doctors', function () {
-    return view('physicians/surgery-doctors');
-});
+
+
+Route::get('physicians/dental', [App\Http\Controllers\PhysicianViewController::class, 'dental']);
+Route::get('physicians/ent', [App\Http\Controllers\PhysicianViewController::class, 'ent']);
+Route::get('physicians/internal-medicine', [App\Http\Controllers\PhysicianViewController::class, 'im']);
+Route::get('physicians/ophthalmology', [App\Http\Controllers\PhysicianViewController::class, 'ophthalmology']);
+Route::get('physicians/pediatric', [App\Http\Controllers\PhysicianViewController::class, 'pediatric']);
+Route::get('physicians/surgery-doctors', [App\Http\Controllers\PhysicianViewController::class, 'surgery']);
+
 Route::get('accredited-hmos', function () {
     return view('accredited-hmos');
 });
@@ -85,3 +77,13 @@ Route::patch('specializatons/{specializatons}', [App\Http\Controllers\Specializa
 Route::resource('service', App\Http\Controllers\ServiceController::class);
 Route::get('service/{service}/edit', [App\Http\Controllers\ServiceController::class, 'edit']);
 Route::patch('service/{service}', [App\Http\Controllers\ServiceController::class, 'update']);
+
+// ScheduleController
+Route::resource('schedule', App\Http\Controllers\ScheduleController::class);
+Route::get('schedule/{schedule}/edit', [App\Http\Controllers\ScheduleController::class, 'edit']);
+Route::patch('schedule/{schedule}', [App\Http\Controllers\ScheduleController::class, 'update']);
+
+
+Route::get('/search-box', function () {
+    return view('searchbox');
+});

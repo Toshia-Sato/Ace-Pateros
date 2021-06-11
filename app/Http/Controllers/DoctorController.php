@@ -32,20 +32,36 @@ class DoctorController extends Controller
     }
 
    
-    public function store(Request $request)
+    public function store()
     {
-        $request->validate([
+        $data = request()->validate([
             'name' => 'required',
             'service_id' => 'required',
-            'specialization_id',
-            'category',
-            'room' ,
-            'schedule_id'
-
-            
+            'specialization_id'=> 'required',
+            'category'=> 'required',
+            'room' => 'required',
+            'image' => ['image']   
         ]);
 
-        Doctor::create($request->all());
+        if(request()->has('image')) {
+            $imagePath = request('image')->store('uploads','public');
+            // $image = Image::make(public_path("storage/{$imagePath}"))->resize(1200,1200);
+            // $image->save();
+        } else {
+            $imagePath = 'uploads/default.png';
+        }
+
+        Doctor::create([
+            'name'=> $data['name'],
+            'service_id' => $data['service_id'],
+            'specialization_id' => $data['specialization_id'],
+            'category' => $data['category'],
+            // 'room' => $data['room'],
+            // 'schedule_id' => $data['schedule_id'],
+            'image'=> $imagePath
+
+
+        ]);
 
         return redirect()->route('doctors.index')
             ->with('success', 'Doctor Added Successfully.');
@@ -79,7 +95,6 @@ class DoctorController extends Controller
             'specialization_id'=> 'required',
             'category'=>'required',
             'room' ,
-            'schedule_id'
             ]);
     
             $doctor->update($data);

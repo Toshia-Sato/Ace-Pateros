@@ -20,7 +20,6 @@ class CreateDoctorTable extends Migration
             $table->integer('specialization_id');
             $table->string('category')->nullable();
             $table->string('room')->nullable();
-            $table->integer('schedule_id')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

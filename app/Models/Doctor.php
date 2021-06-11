@@ -23,8 +23,13 @@ class Doctor extends Authenticatable
         'specialization_id' ,
         'category' ,
         'room' ,
-        'schedule_id'
+        'image'
     ];
+
+
+    public function schedule(){
+        return $this->BelongstoMany(Schedule::class);
+    }
 
     public function service(){
         return $this->belongsTo(Service::class);

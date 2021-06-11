@@ -67,12 +67,14 @@
                     <input type="text" name="room" class="form-control" value="{{ $doctors->room }}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Schedule:</strong>
-                    <input type="te" name="schedule" class="form-control" value="{{ $doctors->schedule }}">
-                </div>
+            <div class="row col-xs-12 col-sm-12 col-md-12 text-center">
+                    <label for="image" class="pr-2">Profile Image</label>
+                    <input type="file" name="image" id="image" class="form-control-file">
             </div>
+
+            @error('image')
+                    <strong>{{ $message }}</strong>
+            @enderror
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
