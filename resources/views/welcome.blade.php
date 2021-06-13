@@ -11,15 +11,15 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner">
+            <div class="carousel-inner align-center fluid">
                 <div class="carousel-item active">
-                <img class="d-block w-50" src="/img/item1.jpg" alt="First slide">
+                <img class="d-block w-100" src="\storage\uploads\Slide1.PNG" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                <img class="d-block w-50" src="/img/item2.jpg" alt="Second slide">
+                <img class="d-block  w-100" src="\storage\uploads\Slide2.PNG" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                <img class="d-block w-50" src="/img/item3.jpg" alt="Third slide">
+                <img class="d-block  w-100" src="\storage\uploads\Slide3.PNG" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-    </div>
-</div>
+<br><br>
+<img src="\storage\uploads\Slide3.PNG" alt="" class="w-100" style="width:1020px;">
 @endsection

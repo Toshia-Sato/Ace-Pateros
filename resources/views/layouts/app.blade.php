@@ -10239,7 +10239,7 @@
                             </a>
                         </div>
                         <div class="logo-image">
-                            <a style="background:#800000" href="https://www.facebook.com/acemedicalcenterpateros" target="_blank">
+                            <a style="background:#800000" href="/doctors" target="_blank">
                             <img src="/img/logo.jpg" class="center rounded-circle img-thumbnail" style="width: 50px;">
                             </a>
                         </div>

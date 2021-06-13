@@ -39,7 +39,7 @@ class DoctorController extends Controller
             'service_id' => 'required',
             'specialization_id'=> 'required',
             'category'=> 'required',
-            'room' => 'required',
+            'room',
             'image' => ['image']   
         ]);
 
@@ -96,6 +96,16 @@ class DoctorController extends Controller
             'category'=>'required',
             'room' ,
             ]);
+
+            if(request()->has('image')) {
+                $imagePath = request('image')->store('uploads','public');
+                // $image = Image::make(public_path("storage/{$imagePath}"))->resize(1200,1200);
+                // $image->save();
+            } else {
+                $imagePath = 'uploads/default.png';
+            }
+
+            $data['image'] = $imagePath;
     
             $doctor->update($data);
     

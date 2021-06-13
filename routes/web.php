@@ -29,16 +29,15 @@ Route::get('/services/nursing-services', function () {
 });
 
 
-Route::get('physicians/dental', [App\Http\Controllers\PhysicianViewController::class, 'dental']);
-Route::get('physicians/ent', [App\Http\Controllers\PhysicianViewController::class, 'ent']);
-Route::get('physicians/internal-medicine', [App\Http\Controllers\PhysicianViewController::class, 'im']);
-Route::get('physicians/ophthalmology', [App\Http\Controllers\PhysicianViewController::class, 'ophthalmology']);
-Route::get('physicians/pediatric', [App\Http\Controllers\PhysicianViewController::class, 'pediatric']);
-Route::get('physicians/surgery-doctors', [App\Http\Controllers\PhysicianViewController::class, 'surgery']);
+Route::get('physicians/dental', [App\Http\Controllers\PhysicianViewController::class, 'index']);
+Route::get('physicians/ent', [App\Http\Controllers\PhysicianViewController::class, 'index']);
+Route::get('physicians/internal-medicine', [App\Http\Controllers\PhysicianViewController::class, 'index']);
+Route::get('physicians/ophthalmology', [App\Http\Controllers\PhysicianViewController::class, 'index']);
+Route::get('physicians/pediatric', [App\Http\Controllers\PhysicianViewController::class, 'index']);
+Route::get('physicians/surgery-doctors', [App\Http\Controllers\PhysicianViewController::class, 'index']);
 
-Route::get('accredited-hmos', function () {
-    return view('accredited-hmos');
-});
+Route::get('accredited-hmos', [App\Http\Controllers\HmoViewController::class, 'index']);
+
 Route::get('floor-directory', function () {
     return view('floor-directory');
 });
@@ -82,6 +81,11 @@ Route::patch('service/{service}', [App\Http\Controllers\ServiceController::class
 Route::resource('schedule', App\Http\Controllers\ScheduleController::class);
 Route::get('schedule/{schedule}/edit', [App\Http\Controllers\ScheduleController::class, 'edit']);
 Route::patch('schedule/{schedule}', [App\Http\Controllers\ScheduleController::class, 'update']);
+
+// HMOController
+Route::resource('hmo', App\Http\Controllers\hmoController::class);
+Route::get('hmo/{hmo}/edit', [App\Http\Controllers\hmoController::class, 'edit']);
+Route::patch('hmo/{hmo}', [App\Http\Controllers\hmoController::class, 'update']);
 
 
 Route::get('/search-box', function () {
