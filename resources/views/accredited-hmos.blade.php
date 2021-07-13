@@ -2,6 +2,12 @@
 
 @section('content')
 
+<div class="jumbotron text-white" style="background:#800000; color:#ffffff; height:150px;">
+  <div class="container">
+    <h1 class="align-middle text-center">Accredited HMO</h1>
+  </div>
+</div>
+
         <div class="container">
             <div class="row justify-content-md-center">
             @foreach ($hmo as $hmos)

@@ -9,9 +9,6 @@
 
     <title>ACE PATEROS</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/side.js') }}" defer></script>
-
 
 
     <!-- Fonts -->
@@ -25,9 +22,6 @@
 
     
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="style.css">
 
     <style>
         @import url(https://fonts.googleapis.com/css?family=Nunito);
@@ -10136,16 +10130,6 @@
 
 </head>
 <body style="background-color: white;">
-
-    <script>
-        $(document).ready(function () {
-
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
-        });
-
-        });
-    </script>
 
     <div id="app">
         <div class="wrapper">

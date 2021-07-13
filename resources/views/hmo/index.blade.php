@@ -5,7 +5,9 @@
 
 @section('content')
 <br>
-<div class="row">
+<div class="container">
+    <div class="col-md-16">
+    <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>HMO</h2>
@@ -110,9 +112,9 @@
     
     
 </div>
+    </div>
 
- 
-
-<div class="container">{{ $hmo->links() }}</div>
+    <div class="container">{{ $hmo->links() }}</div>
 
 @endsection
+</div>

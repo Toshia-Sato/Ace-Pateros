@@ -56,6 +56,7 @@ class serviceController extends Controller
 
     public function destroy(service $service)
     {
+        dd($service);
         $service->delete();
 
         return redirect()->route('service.index')

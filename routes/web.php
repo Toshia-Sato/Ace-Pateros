@@ -87,6 +87,12 @@ Route::resource('hmo', App\Http\Controllers\hmoController::class);
 Route::get('hmo/{hmo}/edit', [App\Http\Controllers\hmoController::class, 'edit']);
 Route::patch('hmo/{hmo}', [App\Http\Controllers\hmoController::class, 'update']);
 
+// ServiceController
+Route::resource('promosandservices', App\Http\Controllers\PromosandServicesController::class);
+Route::get('promosandservices/{promosandservices}/edit', [App\Http\Controllers\PromosandServicesController::class, 'edit']);
+Route::patch('promosandservices/{promosandservices}', [App\Http\Controllers\PromosandServicesController::class, 'update']);
+
+
 
 Route::get('/search-box', function () {
     return view('searchbox');

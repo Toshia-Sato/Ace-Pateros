@@ -5,7 +5,9 @@
 
 @section('content')
 <br>
-<div class="row">
+<div class="container">
+    <div class="flex-column">
+    <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Add Services</h2>
@@ -61,7 +63,7 @@
         <tr>
             
             <th>ID</th>
-            <th>Service_Type</th>
+            <th>Service Type</th>
             <th width="280px">Action</th>
         </tr>
 
@@ -94,6 +96,8 @@
     </table>
     
     
+</div>
+    </div>
 </div>
 
  

@@ -10256,21 +10256,23 @@
             </nav>
 
             <div id="content" style="background-color:white;">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-
+            <nav class="navbar navbar-expand-lg navbar-light pb-5">
+                <div class="container">
                     <button type="button" id="sidebarCollapse" class="btn">
-                        <i class="fas fa-align-left"></i>
+                        <i class="fas fa-align-left"></i> Menu
 
-            </button>
+                    </button>
 
-        </div>
-        </div>
+            </div>
+            </div>
 
-        
-                    </nav>
+            
+            </nav>
+            
+            
                     <div class="container">
-                    <main class="py-4">
+                    <br><br>
+                    <main class="py-3">
                     @yield('content')
                 </main>
                     </div>

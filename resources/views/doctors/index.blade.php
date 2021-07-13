@@ -2,7 +2,7 @@
 @livewireStyles
 <title>Doctor's Section</title>
 @section('content')
-<div class="row">
+<div class="row justify-content-md-center">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 

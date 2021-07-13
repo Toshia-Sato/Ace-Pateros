@@ -1,16 +1,14 @@
-<title>ScheduleCategories</title>
+<title>Service Categories</title>
 
 
 @extends('layouts.admin')
 
 @section('content')
 <br>
-<div class="container">
-    <div class="flex-column">
-    <div class="row">
+<div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Schedule Services</h2>
+                <h2>Add Promos and Services</h2>
             </div>
         </div>
     </div>
@@ -25,37 +23,16 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('schedule.store') }}" method="POST" >
+    <form action="{{ route('promosandservices.store') }}" method="POST" >
         @csrf
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                <label for="doctors_id">Choose a Doctor:</label>
-                <select name="doctors_id" class="form-control" style="height:50px" id="doctors_id" >
-                    @foreach ($doctor as $doctors)
-                    <option value="{{$doctors->id}}">{{$doctors->name}}</option>
-                    @endforeach
-                </select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                <label for="cars">Choose a Day:</label>
-                <select name="day_id" class="form-control" style="height:50px" id="day_id" >
-                    @foreach ($day as $days)
-                    <option value="{{$days->id}}">{{$days->day}}</option>
-                    @endforeach
-                </select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
                     <br>
-                    <input type="text" name="time" class="form-control"">
+                    <input type="text" name="name" class="form-control" >
                 </div>
             </div>
-
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Add</button>
             </div>
@@ -84,20 +61,20 @@
         <tr>
             
             <th>ID</th>
-            <th>Day-ID</th>
+            <th>Service Type</th>
             <th width="280px">Action</th>
         </tr>
 
-        @foreach ($schedule as $schedules)
+        @foreach ($pns as $services)
             <tr>
                 
-                <td>{{ $schedules->id }}</td>
-                <td>{{ $schedules->day_id }}</td>
+                <td>{{ $services->id }}</td>
+                <td>{{ $services->name }}</td>
 
                 <td>
-                    <form action="{{ route('schedule.destroy', $schedules->id) }}" method="POST">
+                    <form action="{{ route('promosandservices.destroy', $services->id) }}" method="POST">
 
-                        <a href="schedule/{{$schedules->id}}/edit">
+                        <a href="promosandservices/{{$services->id}}/edit">
                             <i class="fas fa-edit  fa-lg"></i>
 
                         </a>
@@ -118,11 +95,9 @@
     
     
 </div>
-    </div>
-</div>
 
  
 
-<div class="container">{{ $schedule->links() }}</div>
+<div class="container">{{ $pns->links() }}</div>
 
 @endsection

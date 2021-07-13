@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<br><br>
 <div class="container">
+
+<div class="jumbotron text-white" style="background:#800000; color:#ffffff; height:150px;">
+  <div class="container">
+    <h1 class="align-middle text-center">{{$cap}}</h1>
+  </div>
+</div>
+
             <div class="row justify-content-md-center">
             @foreach ($doctors as $doctor)
             <div class="col-6 col-md-4">

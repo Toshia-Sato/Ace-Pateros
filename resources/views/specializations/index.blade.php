@@ -5,8 +5,10 @@
 
 @section('content')
 <br>
-
-<div class="row">
+<div class="container">
+    <div class="flex-column">
+        
+    <div class="row justify-content-md-center">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Add Specializations</h2>
@@ -44,7 +46,7 @@
 
 
 
-<div class="row">
+<div class="row justify-content-md-center">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 
@@ -95,6 +97,8 @@
     </table>
     
     
+</div>
+    </div>
 </div>
 
  
