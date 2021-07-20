@@ -6,6 +6,12 @@ use App\Models\Specialization;
 
 class SpecializationController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {   
         $specialization = Specialization::latest()->paginate(10);;

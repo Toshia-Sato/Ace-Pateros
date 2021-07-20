@@ -7,6 +7,12 @@ use Intervention\Image\Facades\Image;
 
 class serviceController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {   
         $service = service::latest()->paginate(10);;

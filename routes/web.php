@@ -18,15 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/services/promo-packages', function () {
-    return view('/services/promo-packages');
-});
-Route::get('/services/ancillary-services', function () {
-    return view('/services/ancillary-services');
-});
-Route::get('/services/nursing-services', function () {
-    return view('/services/nursing-services');
-});
+
+
+
+
+
+Route::get('/services/promo-packages', [App\Http\Controllers\OSVController::class, 'index']);
+Route::get('/services/ancillary-services',[App\Http\Controllers\OSVController::class, 'index']);
+Route::get('/services/nursing-services', [App\Http\Controllers\OSVController::class, 'index']);
 
 
 Route::get('physicians/dental', [App\Http\Controllers\PhysicianViewController::class, 'index']);
@@ -37,13 +36,12 @@ Route::get('physicians/pediatric', [App\Http\Controllers\PhysicianViewController
 Route::get('physicians/surgery-doctors', [App\Http\Controllers\PhysicianViewController::class, 'index']);
 
 Route::get('accredited-hmos', [App\Http\Controllers\HmoViewController::class, 'index']);
+Route::get('careers', [App\Http\Controllers\CareerViewController::class, 'index']);
 
 Route::get('floor-directory', function () {
     return view('floor-directory');
 });
-Route::get('careers', function () {
-    return view('careers');
-});
+
 Route::get('about-us', function () {
     return view('about-us');
 });
@@ -85,12 +83,6 @@ Route::patch('schedule/{schedule}', [App\Http\Controllers\ScheduleController::cl
 Route::resource('hmo', App\Http\Controllers\hmoController::class);
 Route::get('hmo/{hmo}/edit', [App\Http\Controllers\hmoController::class, 'edit']);
 Route::patch('hmo/{hmo}', [App\Http\Controllers\hmoController::class, 'update']);
-
-// HMOController
-Route::resource('careers', App\Http\Controllers\DayController::class);
-Route::get('careers/{careers}/edit', [App\Http\Controllers\DayController::class, 'edit']);
-Route::patch('careers/{careers}', [App\Http\Controllers\DayController::class, 'update']);
-
 
 
 

@@ -1,21 +1,21 @@
-@extends('layouts.admin')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header"><?php echo e(__('Dashboard')); ?></div>
 
                 <div class="card-body text-center">
-                    @if (session('status'))
+                    <?php if(session('status')): ?>
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                            <?php echo e(session('status')); ?>
 
-                    {{ __('Welcome Admin!') }} <br><br>
-                    {{ __('Click the link on the carry Administrative Task.') }}
+                        </div>
+                    <?php endif; ?>
+
+                    <?php echo e(__('Welcome Admin!')); ?> <br><br>
+                    <?php echo e(__('Click the link on the carry Administrative Task.')); ?>
+
 
 
                 </div>
@@ -36,4 +36,6 @@ LOG OFF IMMEDIATELY if you do not agree to the conditions stated in this warning
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\laravel\ace-pateros\resources\views/home.blade.php ENDPATH**/ ?>

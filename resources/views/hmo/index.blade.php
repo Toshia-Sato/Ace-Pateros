@@ -42,6 +42,9 @@
                     <input type="text" name="url" class="form-control"">
                 </div>
             </div>
+            @error('url')
+                    <strong>{{ $message }}</strong>
+            @enderror
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                     <label for="image" class="pr-2">Company Logo</label>

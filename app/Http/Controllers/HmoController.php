@@ -9,6 +9,11 @@ use Intervention\Image\Facades\Image;
 
 class HmoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {   
         $hmo = HMO::latest()->paginate(10);

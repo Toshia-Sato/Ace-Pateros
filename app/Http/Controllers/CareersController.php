@@ -8,6 +8,12 @@ use Intervention\Image\Facades\Image;
 
 class CareersController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {   
         $careers = Careers::latest()->paginate(10);

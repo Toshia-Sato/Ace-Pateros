@@ -12,36 +12,39 @@ class PhysicianViewController extends Controller
         $url = request()->path();
         // dd($url);
 
+        
+
         switch ($url) {
             case "physicians/dental":
-                $link = 2;
+                $link = 1;
                 $cap = "Dental";
               break;
             case "physicians/ent":
-                $link = 3;
+                $link = 2;
                 $cap = "ENT";
               break;
             case "physicians/internal-medicine":
-                $link = 4;
+                $link = 3;
                 $cap = "Internal Medicine";
               break;
             case "physicians/ophthalmology":
-                $link = 5;
+                $link = 4;
                 $cap = "Ophthalmology";
               break;
             case "physicians/pediatric":
-                $link = 6;
+                $link = 5;
                 $cap = "Pediatric";
               break;
             case "physicians/surgery-doctors":
-                $link = 7;
+                $link = 6;
                 $cap = "Surgery Doctors";
               break;
               
           }
 
         $doctors = Doctor::where('specialization_id', $link)->orderby('name')->paginate(20);
-        return view('physicians.dental', compact('doctors' ,'cap'))
+        $count = $doctors->count();
+        return view('physicians.dental', compact('doctors' ,'cap','count'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
