@@ -32,13 +32,19 @@
             
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <br>
+                <label for="image" class="pr-2">Company Name</label>
                     <input type="text" name="name" class="form-control"">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                <label for="url" class="pr-2">Company Website</label>
+                    <input type="text" name="url" class="form-control"">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                    <label for="image" class="pr-2">Post Image</label>
+                    <label for="image" class="pr-2">Company Logo</label>
                     <input type="file" name="image" id="image" class="form-control-file">
             </div>
 

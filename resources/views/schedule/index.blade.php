@@ -1,4 +1,4 @@
-<title>ScheduleCategories</title>
+<title>Careers | Admin</title>
 
 
 @extends('layouts.admin')
@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Schedule Services</h2>
+                <h2>CRUD for Careers</h2>
             </div>
         </div>
     </div>
@@ -25,36 +25,32 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('schedule.store') }}" method="POST" >
+    <form action="{{ route('schedule.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                <label for="doctors_id">Choose a Doctor:</label>
-                <select name="doctors_id" class="form-control" style="height:50px" id="doctors_id" >
-                    @foreach ($doctor as $doctors)
-                    <option value="{{$doctors->id}}">{{$doctors->name}}</option>
-                    @endforeach
-                </select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                <label for="cars">Choose a Day:</label>
-                <select name="day_id" class="form-control" style="height:50px" id="day_id" >
-                    @foreach ($day as $days)
-                    <option value="{{$days->id}}">{{$days->day}}</option>
-                    @endforeach
-                </select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
                     <br>
-                    <input type="text" name="time" class="form-control"">
+                    <label for="jobtitle" class="pr-2">Job Title</label>
+                    <input type="text" name="jobtitle" class="form-control"">
                 </div>
             </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label for="description" class="pr-2">Job Description</label>
+                    <textarea name="description" cols="100" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                    <label for="image" class="pr-2">Image</label>
+                    <input type="file" name="image" id="image" class="form-control-file">
+            </div>
+
+            @error('image')
+                    <strong>{{ $message }}</strong>
+            @enderror
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Add</button>
@@ -63,7 +59,7 @@
 
     </form>
 
-
+<br>
 
 
 <div class="row">
@@ -84,7 +80,9 @@
         <tr>
             
             <th>ID</th>
-            <th>Day-ID</th>
+            <th>Jobtitle</th>
+            <th>Description</th>
+            <th>Image</th>
             <th width="280px">Action</th>
         </tr>
 
@@ -92,7 +90,11 @@
             <tr>
                 
                 <td>{{ $schedules->id }}</td>
-                <td>{{ $schedules->day_id }}</td>
+                <td>{{ $schedules->jobtitle }}</td>
+                <td>{{ $schedules->description }}</td>
+                <td>
+                <img src="/storage/{{ $schedules->image}}" alt="" class="img-thumbnail" style="width: 100px;">
+                </td>
 
                 <td>
                     <form action="{{ route('schedule.destroy', $schedules->id) }}" method="POST">

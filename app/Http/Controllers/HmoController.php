@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\HMO;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class HmoController extends Controller
 {
     public function index()
     {   
-        $hmo = HMO::latest()->paginate(10);;
+        $hmo = HMO::latest()->paginate(10);
 
         // dd($hmo);
         return view('hmo.index', compact('hmo'))
@@ -29,19 +30,21 @@ class HmoController extends Controller
     {
         $data = request()->validate([
             'name' => 'required',
+            'url' => 'required',
             'image' => ['image']   
         ]);
 
         if(request()->has('image')) {
             $imagePath = request('image')->store('uploads','public');
-            // $image = Image::make(public_path("storage/{$imagePath}"))->resize(1200,1200);
-            // $image->save();
+            $image = Image::make(public_path("storage/{$imagePath}"))->resize(720,720);
+            $image->save();
         } else {
             $imagePath = 'uploads/default.png';
         }
 
         HMO::create([
             'name'=> $data['name'],
+            'url'=> $data['url'],
             'image'=> $imagePath
         ]);
 
@@ -69,8 +72,8 @@ class HmoController extends Controller
 
             if(request()->has('image')) {
                 $imagePath = request('image')->store('uploads','public');
-                // $image = Image::make(public_path("storage/{$imagePath}"))->resize(1200,1200);
-                // $image->save();
+                $image = Image::make(public_path("storage/{$imagePath}"))->resize(720,720);
+                $image->save();
             } else {
                 $imagePath = 'uploads/default.png';
             }

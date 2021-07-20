@@ -6,11 +6,11 @@
 
         <table class="table table-bordered table-responsive-lg mt-4">
         <tr>
+
+            <th>ID</th>
             <th>Name</th>
-            <th>Service Type</th>
             <th>Specialization</th>
             <th>Category</th>
-            <th>Room</th>
             <th>Schedule</th>
             <th>Image</th>
             <th width="280px">Action</th>
@@ -18,16 +18,11 @@
         @foreach ($doctors as $doctor)
             <tr>
                 
+                <td>{{ $doctor->id }}</td>
                 <td>{{ $doctor->name }}</td>
-                <td>{{ $doctor->service->service_type }}</td>
                 <td>{{ $doctor->specialization->specialization }}</td>
                 <td>{{ $doctor->category}}</td>
-                <td>{{ $doctor->room }}</td>
-                <td>
-                    <a href="{{ route('schedule.index', $doctor->id) }}" title="show">
-                    <button class="btn btn-success"> View Schedule</button></td>
-                    </a>
-                
+                <td>{{ $doctor->schedule }}</td>
                 <td>
                 @if(!($doctor->image))
                     <img src="/storage/uploads/default.png" class="img-thumbnail" style="width: 100px;">

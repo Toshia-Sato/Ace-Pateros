@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\Service;
 use App\Models\Specialization;
+use Intervention\Image\Facades\Image;
 use DOTNET;
 
 class DoctorController extends Controller
@@ -36,28 +37,25 @@ class DoctorController extends Controller
     {
         $data = request()->validate([
             'name' => 'required',
-            'service_id' => 'required',
             'specialization_id'=> 'required',
             'category'=> 'required',
-            'room',
+            'schedule'=> 'required',
             'image' => ['image']   
         ]);
 
         if(request()->has('image')) {
             $imagePath = request('image')->store('uploads','public');
-            // $image = Image::make(public_path("storage/{$imagePath}"))->resize(1200,1200);
-            // $image->save();
+            $image = Image::make(public_path("storage/{$imagePath}"))->resize(720,720);
+            $image->save();
         } else {
             $imagePath = 'uploads/default.png';
         }
 
         Doctor::create([
             'name'=> $data['name'],
-            'service_id' => $data['service_id'],
             'specialization_id' => $data['specialization_id'],
             'category' => $data['category'],
-            // 'room' => $data['room'],
-            // 'schedule_id' => $data['schedule_id'],
+            'schedule' => $data['schedule'],
             'image'=> $imagePath
 
 
@@ -91,16 +89,16 @@ class DoctorController extends Controller
     {
         $data = request()->validate([
             'name' => 'required',
-            'service_id'=> 'required',
             'specialization_id'=> 'required',
-            'category'=>'required',
-            'room' ,
+            'category'=> 'required',
+            'schedule'=> 'required',
+            'image' => ['image']   
             ]);
 
             if(request()->has('image')) {
                 $imagePath = request('image')->store('uploads','public');
-                // $image = Image::make(public_path("storage/{$imagePath}"))->resize(1200,1200);
-                // $image->save();
+                $image = Image::make(public_path("storage/{$imagePath}"))->resize(720,720);
+                $image->save();
             } else {
                 $imagePath = 'uploads/default.png';
             }

@@ -17,7 +17,7 @@ class Service extends Model
      * @var array
      */
     protected $fillable = [
-        'service_type' ,
+        'name' , 'category', 'image'
     ];
 
     public function Doctor(){

@@ -16,6 +16,7 @@ class HMO extends Model
      */
     protected $fillable = [
         'name' ,
+        'url',
         'image'
     ];
 }

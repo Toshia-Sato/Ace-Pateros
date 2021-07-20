@@ -10147,19 +10147,20 @@
                     <a href="/">GO TO PUBLIC VIEW</a>
                 </li>
                 <li>
-                    <a href="/doctors">DOCTORS</a>
-                </li>
-                <li>
                     <a href="/specializations">SPECIALIZATION</a>
                 </li>
                 <li>
-                    <a href="/service">SERVICE</a>
+                    <a href="/doctors">DOCTORS</a>
                 </li>
+                
                 <li>
-                    <a href="/schedule">SCHEDULE</a>
+                    <a href="/service">PROMOS & SERVICE</a>
                 </li>
                 <li>
                     <a href="/hmo">HMO</a>
+                </li>
+                <li>
+                    <a href="/schedule">CAREERS</a>
                 </li>
                 <li>
                     <a style="background:#800000"></a>

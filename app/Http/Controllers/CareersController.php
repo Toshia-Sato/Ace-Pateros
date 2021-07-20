@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\Careers;
 
-class DayController extends Controller
+use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+
+class CareersController extends Controller
 {
     public function index()
     {   

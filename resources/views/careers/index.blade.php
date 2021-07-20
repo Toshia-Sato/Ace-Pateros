@@ -1,14 +1,16 @@
-<title>Service Categories</title>
+<title>Admin | HMO</title>
 
 
 @extends('layouts.admin')
 
 @section('content')
 <br>
-<div class="row">
+<div class="container">
+    <div class="col-md-16">
+    <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add Promos and Services</h2>
+                <h2>HMO</h2>
             </div>
         </div>
     </div>
@@ -23,16 +25,33 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('promosandservices.store') }}" method="POST" >
+    <form action="{{ route('careers.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="row">
+            
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <br>
-                    <input type="text" name="name" class="form-control" >
+                <label for="image" class="pr-2">Job Title</label>
+                    <input type="text" name="name" class="form-control"">
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                <label for="url" class="pr-2">Link</label>
+                    <input type="text" name="url" class="form-control"">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                    <label for="image" class="pr-2">Job Photo</label>
+                    <input type="file" name="image" id="image" class="form-control-file">
+            </div>
+
+            @error('image')
+                    <strong>{{ $message }}</strong>
+            @enderror
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Add</button>
             </div>
@@ -61,20 +80,24 @@
         <tr>
             
             <th>ID</th>
-            <th>Service Type</th>
+            <th>Job Title</th>
+            <th>Image</th>
             <th width="280px">Action</th>
         </tr>
 
-        @foreach ($pns as $services)
+        @foreach ($careers as $career)
             <tr>
                 
-                <td>{{ $services->id }}</td>
-                <td>{{ $services->name }}</td>
+                <td>{{ $career->id }}</td>
+                <td>{{ $career->name }}</td>
+                <td>
+                <img src="/storage/{{ $career->image}}" alt="" class="img-thumbnail" style="width: 100px;">
+                </td>
 
                 <td>
-                    <form action="{{ route('promosandservices.destroy', $services->id) }}" method="POST">
+                    <form action="{{ route('careers.destroy', $career->id) }}" method="POST">
 
-                        <a href="promosandservices/{{$services->id}}/edit">
+                        <a href="hmo/{{$career->id}}/edit">
                             <i class="fas fa-edit  fa-lg"></i>
 
                         </a>
@@ -95,9 +118,9 @@
     
     
 </div>
+    </div>
 
- 
-
-<div class="container">{{ $pns->links() }}</div>
+    <div class="container">{{ $careers->links() }}</div>
 
 @endsection
+</div>

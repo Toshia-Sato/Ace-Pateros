@@ -13,10 +13,11 @@ class CreateDayTable extends Migration
      */
     public function up()
     {
-        Schema::create('day', function (Blueprint $table) {
+        Schema::create('careers', function (Blueprint $table) {
             $table->id();
-            $table->string('day')->unique();
-            $table->string('sday');
+            $table->string('name')->unique();
+            $table->string('url')->unique();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

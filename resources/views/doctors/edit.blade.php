@@ -2,7 +2,8 @@
 
 
 @section('content')
-    <div class="row">
+    <div class="container">
+    <div class="row justify-content-md-center">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Edit Doctor's Details</h2>
@@ -27,7 +28,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Name:</strong>
+                <label for="name" class="pr-2">Name</label>
                     <input type="text" name="name" class="form-control" value="{{ $doctors->name }}">
                 </div>
             </div>
@@ -44,16 +45,6 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                <label for="cars">Choose Service:</label>
-                <select name="service_id" class="form-control" style="height:50px" id="service_id">
-                @foreach ($service as $services)
-                <option value="{{$services->id}}" {{$services->id == $doctors->service_id ? 'selected' :''}}>{{$services->service_type}}</option>
-                @endforeach
-                </select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
                 <label for="category">Category:</label>
                 <select name="category" class="form-control" style="height:50px" id="category" value="{{$doctors->category}}">                
                 <option value="Regular Consultant">Regular Consultant</option>
@@ -63,11 +54,11 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Room:</strong>
-                    <input type="text" name="room" class="form-control" value="{{ $doctors->room }}">
+                <label for="schedule" class="pr-2">Schedule</label>
+                    <input type="text" name="schedule" class="form-control" value="{{ $doctors->schedule }}">
                 </div>
             </div>
-            <div class="row col-xs-12 col-sm-12 col-md-12 text-center">
+            <div class="col-xs-12 col-sm-12 col-md-12">
                     <label for="image" class="pr-2">Profile Image</label>
                     <input type="file" name="image" id="image" class="form-control-file">
             </div>
@@ -81,5 +72,7 @@
         </div>
 
     </form>
+
+    </div>
 @endsection
 

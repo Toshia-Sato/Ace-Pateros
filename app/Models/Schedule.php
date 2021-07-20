@@ -15,18 +15,11 @@ class Schedule extends Model
      * @var array
      */
     protected $fillable = [
-        'day_id' ,
-        'doctors_id' ,
-        'time'
+        'jobtitle' ,
+        'description',
+        'image'
     ];
 
-    public function Doctor(){
-        return $this->hasMany(Doctor::class);
-    }
-
-    public function Day(){
-        return $this->hasMany(Day::class);
-    }
 
 
 }

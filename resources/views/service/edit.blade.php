@@ -28,14 +28,38 @@
     @csrf
     @method('PATCH')
 
-        <input type="hidden" name="id" value="{{$service->id}}">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="row">
+            <div class="col-md-12">
+
                 <div class="form-group">
                     <br>
-                    <input type="text" name="service_type" class="form-control" value="{{$service->service_type}}">
+                    <label for="category">Promos and Services:</label>
+                    <input 
+                    type="text"
+                    id="name"
+                    class="form-control @error('name') is-invalid @enderror" 
+                    name="name" 
+                    value="{{ old('name') ?? $service->name }}"
+                    autocomplete="name" autofocus>
                 </div>
             </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                <label for="category">Category:</label>
+                <select name="category" class="form-control" style="height:50px" id="category" value="{{$service->category}}">                
+                <option value="1">Promo Packages</option>
+                <option value="2">Ancillary Services</option>
+                <option value="3">Nursing Services</option>
+                </select>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                    <label for="image" class="pr-2">Post Image</label>
+                    <input type="file" name="image" id="image" class="form-control-file">
+            </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-warning">Save Edit</button>
             </div>

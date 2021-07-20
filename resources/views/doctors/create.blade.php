@@ -46,16 +46,6 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                <label for="cars">Choose Service:</label>
-                <select name="service_id" class="form-control" style="height:50px" id="service_id" >
-                @foreach ($service as $services)
-                <option value="{{$services->id}}">{{$services->service_type}}</option>
-                @endforeach
-                </select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
                 <label for="cars">Category:</label>
                 <select name="category" class="form-control" style="height:50px" id="category" >                
                 <option value="Regular Consultant">Regular Consultant</option>
@@ -65,8 +55,8 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Room:</strong>
-                    <input type="text" name="room" class="form-control" >
+                <label for="cars">Schedule:</label>
+                    <input type="text" name="schedule" class="form-control" >
                 </div>
             </div>
 

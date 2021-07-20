@@ -19,10 +19,9 @@ class Doctor extends Authenticatable
      */
     protected $fillable = [
         'name' ,
-        'service_id' ,
         'specialization_id' ,
         'category' ,
-        'room' ,
+        'schedule' ,
         'image'
     ];
 

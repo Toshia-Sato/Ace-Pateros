@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\service;
+use Intervention\Image\Facades\Image;
 
 class serviceController extends Controller
 {
@@ -25,10 +26,24 @@ class serviceController extends Controller
     public function store(Request $request)
     {
         $data = request()->validate([
-            'service_type' => 'required'
+            'name' => 'required',
+            'category' => 'required',
+            'image' => ['image']
             ]);
 
-        service::create($request->all());
+            if(request()->has('image')) {
+                $imagePath = request('image')->store('uploads','public');
+                $image = Image::make(public_path("storage/{$imagePath}"))->resize(720,720);
+                $image->save();
+            } else {
+                $imagePath = 'uploads/default.png';
+            }
+    
+            service::create([
+                'name'=> $data['name'],
+                'category'=> $data['category'],
+                'image'=> $imagePath
+            ]);
 
         return redirect()->route('service.index')
             ->with('success', 'Doctor Added Successfully.');
@@ -46,7 +61,8 @@ class serviceController extends Controller
     public function update(service $service)
     {
         $data = request()->validate([
-            'service_type' => 'required'
+            'name' => 'required',
+            'category' => 'required'
             ]);
     
             $service->update($data);
@@ -56,7 +72,6 @@ class serviceController extends Controller
 
     public function destroy(service $service)
     {
-        dd($service);
         $service->delete();
 
         return redirect()->route('service.index')

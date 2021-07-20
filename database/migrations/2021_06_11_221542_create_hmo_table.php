@@ -16,6 +16,7 @@ class CreateHmoTable extends Migration
         Schema::create('hmo', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->string('url')->unique();
             $table->string('image')->nullable();
             $table->timestamps();
         });

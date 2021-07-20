@@ -66,7 +66,6 @@ Route::patch('doctors/{doctors}', [App\Http\Controllers\DoctorController::class,
 Route::get('/s', [App\Http\Controllers\SearchController::class, 'index']);
 Route::get('/s/search', [App\Http\Controllers\SearchController::class, 'search']);
 
-
 // SpecializationController
 Route::resource('specializations', App\Http\Controllers\SpecializationController::class);
 Route::get('specializations/{specializations}/edit', [App\Http\Controllers\SpecializationController::class, 'edit']);
@@ -87,10 +86,12 @@ Route::resource('hmo', App\Http\Controllers\hmoController::class);
 Route::get('hmo/{hmo}/edit', [App\Http\Controllers\hmoController::class, 'edit']);
 Route::patch('hmo/{hmo}', [App\Http\Controllers\hmoController::class, 'update']);
 
-// ServiceController
-Route::resource('promosandservices', App\Http\Controllers\PromosandServicesController::class);
-Route::get('promosandservices/{promosandservices}/edit', [App\Http\Controllers\PromosandServicesController::class, 'edit']);
-Route::patch('promosandservices/{promosandservices}', [App\Http\Controllers\PromosandServicesController::class, 'update']);
+// HMOController
+Route::resource('careers', App\Http\Controllers\DayController::class);
+Route::get('careers/{careers}/edit', [App\Http\Controllers\DayController::class, 'edit']);
+Route::patch('careers/{careers}', [App\Http\Controllers\DayController::class, 'update']);
+
+
 
 
 

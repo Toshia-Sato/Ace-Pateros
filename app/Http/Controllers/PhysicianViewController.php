@@ -40,7 +40,7 @@ class PhysicianViewController extends Controller
               
           }
 
-        $doctors = Doctor::where('specialization_id', $link)->latest()->paginate(20);
+        $doctors = Doctor::where('specialization_id', $link)->orderby('name')->paginate(20);
         return view('physicians.dental', compact('doctors' ,'cap'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

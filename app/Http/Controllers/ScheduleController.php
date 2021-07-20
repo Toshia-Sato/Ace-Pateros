@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Schedule;
-use App\Models\Doctor;
-use App\Models\Day;
+use Intervention\Image\Facades\Image;
 
 
 class ScheduleController extends Controller
@@ -14,34 +13,39 @@ class ScheduleController extends Controller
     {
         
         $schedule = Schedule::latest()->paginate(10);
-        $day = Day::all();
-        $doctor = Doctor::all();
-        // dd($doctor);
-        
-
-        // dd($doctor);
-        return view('schedule.index', compact('schedule','day','doctor'))
+    
+        return view('schedule.index', compact('schedule'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create()
     {
-        $day = 'day';
         $schedule = 'schedule';
-        $doctor = 'doctors';
-        return view('schedule.create', compact('schedule','day','doctor'));
+        return view('schedule.create', compact('schedule'));
     }
 
    
     public function store()
     {
         $data = request()->validate([
-            'day_id'=> 'required',
-            'doctors_id' => 'required',
-            'time' => 'required'
-            ]);
+            'jobtitle' => 'required',
+            'description' => 'required',
+            'image' => ['image']   
+        ]);
 
-        Schedule::create($data);
+        if(request()->has('image')) {
+            $imagePath = request('image')->store('uploads','public');
+            $image = Image::make(public_path("storage/{$imagePath}"))->resize(720,720);
+            $image->save();
+        } else {
+            $imagePath = 'uploads/default.png';
+        }
+
+        Schedule::create([
+            'jobtitle'=> $data['jobtitle'],
+            'description'=> $data['description'],
+            'image'=> $imagePath
+        ]);
 
         return redirect()->route('schedule.index')
             ->with('success', 'Schedule Added Successfully.');
@@ -59,11 +63,21 @@ class ScheduleController extends Controller
     public function update(schedule $schedule)
     {
         $data = request()->validate([
-            'day_id'=> 'required',
-            'doctors_id' => 'required',
-            'time' => 'required'
+            'jobtitle' => 'required',
+            'description' => 'required',
+            'image' => ['image'] 
             ]);
-    
+
+            if(request()->has('image')) {
+                $imagePath = request('image')->store('uploads','public');
+                $image = Image::make(public_path("storage/{$imagePath}"))->resize(720,720);
+                $image->save();
+            } else {
+                $imagePath = 'uploads/default.png';
+            }
+
+            $data['image'] = $imagePath;
+
             $schedule->update($data);
     
         return redirect('schedule') -> with('success', 'Doctor updated successfully');
